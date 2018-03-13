@@ -35,9 +35,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.6.0.362, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.6.0\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -56,6 +68,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\CameraConfiguratorView.xaml.cs">
+      <DependentUpon>CameraConfiguratorView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -68,6 +83,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\CameraConfiguratorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -87,6 +106,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -95,6 +115,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VideosCentral.CameraConfigurator.Domain\VideosCentral.CameraConfigurator.Domain.csproj">
+      <Project>{1b9f9e25-9f38-4421-9ee0-78d6911c88ed}</Project>
+      <Name>VideosCentral.CameraConfigurator.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideosCentral.CameraConfigurator.Services.Contracts\VideosCentral.CameraConfigurator.Services.Contracts.csproj">
+      <Project>{50521bfe-62d4-42d3-af0b-d5f021ec22e2}</Project>
+      <Name>VideosCentral.CameraConfigurator.Services.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideosCentral.CameraConfigurator.Services\VideosCentral.CameraConfigurator.Services.csproj">
+      <Project>{e1f0efe9-407d-408b-ab6c-bf1f92cf8520}</Project>
+      <Name>VideosCentral.CameraConfigurator.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideosCentral.CameraConfigurator.ViewModels\VideosCentral.CameraConfigurator.ViewModels.csproj">
+      <Project>{323f3e8c-ca14-4c75-ae2c-01c891f4eefc}</Project>
+      <Name>VideosCentral.CameraConfigurator.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideosCentral.Kernel\VideosCentral.Kernel.csproj">
+      <Project>{101cb752-73a7-4478-b732-98d5f45bfa2b}</Project>
+      <Name>VideosCentral.Kernel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideosCentral.Services.Contracts\VideosCentral.Services.Contracts.csproj">
+      <Project>{75d0019e-481b-4e36-bfaf-0e7dc3223a9a}</Project>
+      <Name>VideosCentral.Services.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideosCentral.Services\VideosCentral.Services.csproj">
+      <Project>{215e5df4-c609-4da6-a385-c19ef0a0620a}</Project>
+      <Name>VideosCentral.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\USB.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -76,6 +76,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VideosCentral.Domain\VideosCentral.Domain.csproj">
+      <Project>{9ec7d9f6-ec7f-45e1-8518-f802fba00250}</Project>
+      <Name>VideosCentral.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VideosCentral.Kernel\VideosCentral.Kernel.csproj">
       <Project>{101cb752-73a7-4478-b732-98d5f45bfa2b}</Project>
       <Name>VideosCentral.Kernel</Name>

@@ -3,6 +3,7 @@ using System.IO;
 using System.Management;
 using System.ServiceProcess;
 using System.Timers;
+using VideosCentral.Domain.Enum;
 using VideosCentral.Kernel;
 using VideosCentral.Logger;
 using VideosCentral.Logger.Interface;
@@ -37,16 +38,11 @@ namespace VideosCentral.VideosTransferer
         private void DriveChanged(object sender, EventArrivedEventArgs e)
         {
             string driveName = e.NewEvent.Properties["DriveName"].Value.ToString();
-            EventType eventType = (EventType)(Convert.ToInt16(e.NewEvent.Properties["EventType"].Value));
+            DriveEventType eventType = (DriveEventType)(Convert.ToInt16(e.NewEvent.Properties["EventType"].Value));
 
-            string eventName = Enum.GetName(typeof(EventType), eventType);
+            string eventName = Enum.GetName(typeof(DriveEventType), eventType);
 
             Kernel.Kernel.Resolve<ILogger>().LogInfo($"\"{driveName}\" : {eventName}");
         }
-    }
-    public enum EventType
-    {
-        Inserted = 2,
-        Removed = 3
     }
 }

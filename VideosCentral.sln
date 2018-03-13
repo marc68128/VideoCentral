@@ -13,6 +13,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideosCentral.Services", "V
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideosCentral.CameraConfigurator", "VideosCentral.CameraConfigurator\VideosCentral.CameraConfigurator.csproj", "{EBDF9B3B-209C-45BB-82E6-21E396F1C0B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideosCentral.Domain", "VideosCentral.Domain\VideosCentral.Domain.csproj", "{9EC7D9F6-EC7F-45E1-8518-F802FBA00250}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideosCentral.Services.Contracts", "VideosCentral.Services.Contracts\VideosCentral.Services.Contracts.csproj", "{75D0019E-481B-4E36-BFAF-0E7DC3223A9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideosCentral.CameraConfigurator.Domain", "VideosCentral.CameraConfigurator.Domain\VideosCentral.CameraConfigurator.Domain.csproj", "{1B9F9E25-9F38-4421-9EE0-78D6911C88ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideosCentral.CameraConfigurator.ViewModels", "VideosCentral.CameraConfigurator.ViewModels\VideosCentral.CameraConfigurator.ViewModels.csproj", "{323F3E8C-CA14-4C75-AE2C-01C891F4EEFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideosCentral.CameraConfigurator.Services", "VideosCentral.CameraConfigurator.Services\VideosCentral.CameraConfigurator.Services.csproj", "{E1F0EFE9-407D-408B-AB6C-BF1F92CF8520}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideosCentral.CameraConfigurator.Services.Contracts", "VideosCentral.CameraConfigurator.Services.Contracts\VideosCentral.CameraConfigurator.Services.Contracts.csproj", "{50521BFE-62D4-42D3-AF0B-D5F021EC22E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CameraConfigurator", "CameraConfigurator", "{ADCC95DC-0CD1-454B-9162-FD58520ECBFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,8 +53,39 @@ Global
 		{EBDF9B3B-209C-45BB-82E6-21E396F1C0B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBDF9B3B-209C-45BB-82E6-21E396F1C0B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBDF9B3B-209C-45BB-82E6-21E396F1C0B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EC7D9F6-EC7F-45E1-8518-F802FBA00250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EC7D9F6-EC7F-45E1-8518-F802FBA00250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EC7D9F6-EC7F-45E1-8518-F802FBA00250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EC7D9F6-EC7F-45E1-8518-F802FBA00250}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75D0019E-481B-4E36-BFAF-0E7DC3223A9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75D0019E-481B-4E36-BFAF-0E7DC3223A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75D0019E-481B-4E36-BFAF-0E7DC3223A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75D0019E-481B-4E36-BFAF-0E7DC3223A9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B9F9E25-9F38-4421-9EE0-78D6911C88ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B9F9E25-9F38-4421-9EE0-78D6911C88ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B9F9E25-9F38-4421-9EE0-78D6911C88ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B9F9E25-9F38-4421-9EE0-78D6911C88ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{323F3E8C-CA14-4C75-AE2C-01C891F4EEFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{323F3E8C-CA14-4C75-AE2C-01C891F4EEFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{323F3E8C-CA14-4C75-AE2C-01C891F4EEFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{323F3E8C-CA14-4C75-AE2C-01C891F4EEFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1F0EFE9-407D-408B-AB6C-BF1F92CF8520}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1F0EFE9-407D-408B-AB6C-BF1F92CF8520}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1F0EFE9-407D-408B-AB6C-BF1F92CF8520}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1F0EFE9-407D-408B-AB6C-BF1F92CF8520}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50521BFE-62D4-42D3-AF0B-D5F021EC22E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50521BFE-62D4-42D3-AF0B-D5F021EC22E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50521BFE-62D4-42D3-AF0B-D5F021EC22E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50521BFE-62D4-42D3-AF0B-D5F021EC22E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EBDF9B3B-209C-45BB-82E6-21E396F1C0B9} = {ADCC95DC-0CD1-454B-9162-FD58520ECBFC}
+		{1B9F9E25-9F38-4421-9EE0-78D6911C88ED} = {ADCC95DC-0CD1-454B-9162-FD58520ECBFC}
+		{323F3E8C-CA14-4C75-AE2C-01C891F4EEFC} = {ADCC95DC-0CD1-454B-9162-FD58520ECBFC}
+		{E1F0EFE9-407D-408B-AB6C-BF1F92CF8520} = {ADCC95DC-0CD1-454B-9162-FD58520ECBFC}
+		{50521BFE-62D4-42D3-AF0B-D5F021EC22E2} = {ADCC95DC-0CD1-454B-9162-FD58520ECBFC}
 	EndGlobalSection
 EndGlobal
