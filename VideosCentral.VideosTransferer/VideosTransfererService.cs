@@ -18,7 +18,7 @@ namespace VideosCentral.VideosTransferer
     public partial class VideosTransfererService : ServiceBase
     {
         private readonly IConfigurationFileService _configurationFileService;
-        private readonly IUsbDevicesService _usbDeviceService;
+        private readonly IWindowsVolumeListenerService m_WindowsVolumeListenerService;
         private readonly IVideoFileService _videoFileService;
         private readonly ILogger _logger;
 
@@ -28,27 +28,27 @@ namespace VideosCentral.VideosTransferer
 
             _videoFileService = new VideoFileService();
             _configurationFileService = new ConfigurationFileService(encryptionService, _videoFileService);
-            _usbDeviceService = new UsbDevicesService();
+            m_WindowsVolumeListenerService = new WindowsVolumeListenerService();
             _logger = new FileLogger(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs"));
 
             KernelConfig.RegisterInstance<ILogger>(_logger);
             KernelConfig.RegisterInstance<IEncryptionService>(encryptionService);
             KernelConfig.RegisterInstance<IVideoFileService>(_videoFileService);
             KernelConfig.RegisterInstance<IConfigurationFileService>(_configurationFileService);
-            KernelConfig.RegisterInstance<IUsbDevicesService>(_usbDeviceService);
+            KernelConfig.RegisterInstance<IWindowsVolumeListenerService>(m_WindowsVolumeListenerService);
 
             InitializeComponent();
         }
 
         protected override void OnStart(string[] args)
         {
-            _usbDeviceService.DriveInsertedEvent += DriveInserted;
+            m_WindowsVolumeListenerService.DriveInsertedEvent += DriveInserted;
             _logger.LogInfo("Service started");
         }
 
         protected override void OnStop()
         {
-            _usbDeviceService.DriveInsertedEvent -= DriveInserted;
+            m_WindowsVolumeListenerService.DriveInsertedEvent -= DriveInserted;
             _logger.LogInfo("Service stopped");
         }
 
@@ -66,7 +66,7 @@ namespace VideosCentral.VideosTransferer
             var videosOnDrive = _videoFileService.GetAllVideoFiles(s);
             var videosInConfig = configurationFile.VideoPaths.ToList();
 
-            var newVideos = videosOnDrive.Except(videosInConfig).ToList();
+            var newVideos = videosOnDrive.Except(videosInConfig).Select(newVideo => Path.Combine(s, newVideo)).ToList();
 
             if (!newVideos.Any())
             {
@@ -84,9 +84,9 @@ namespace VideosCentral.VideosTransferer
                 if (!Directory.Exists(destinationFolder))
                     Directory.CreateDirectory(destinationFolder);
 
-                _logger.LogInfo($"\"{s}\" : Start copying {newVideo} to {destinationPath} [{DateTime.Now:T}].");
+                _logger.LogInfo($"\"{s}\" : Start copying {newVideo} to {destinationPath}.");
                 File.Copy(newVideo, destinationPath);
-                _logger.LogInfo($"\"{s}\" : End copying {newVideo} to {destinationPath} [{DateTime.Now:T}].");
+                _logger.LogInfo($"\"{s}\" : End copying {newVideo} to {destinationPath}.");
 
                 videosInConfig.Add(newVideo);
 

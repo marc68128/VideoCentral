@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="IConfigurationFileService.cs" />
     <Compile Include="IEncryptionService.cs" />
-    <Compile Include="IUsbDevicesService.cs" />
+    <Compile Include="IWindowsVolumeListenerService.cs" />
     <Compile Include="IVideoFileService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

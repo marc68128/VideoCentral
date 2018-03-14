@@ -3,19 +3,19 @@
 namespace VideosCentral.Services.Contracts
 {
     /// <summary>
-    /// Listen to drive events (inserting, removing) 
+    /// Listen to volume events (inserting, removing) 
     /// </summary>
-    public interface IUsbDevicesService
+    public interface IWindowsVolumeListenerService
     {
         #region Events
 
         /// <summary>
-        /// Event raised when a drive is inserted. (With the name of the drive as parameter) 
+        /// Event raised when a drive is inserted. (With the drive letter as parameter) 
         /// </summary>
         event EventHandler<string> DriveInsertedEvent;
 
         /// <summary>
-        /// Event raised when a drive is removed. (With the name of the drive as parameter) 
+        /// Event raised when a drive is removed. (With the drive letter as parameter) 
         /// </summary>
         event EventHandler<string> DriveRemovedEvent;
 

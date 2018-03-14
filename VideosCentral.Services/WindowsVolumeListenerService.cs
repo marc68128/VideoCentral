@@ -6,9 +6,9 @@ using VideosCentral.Services.Contracts;
 namespace VideosCentral.Services
 {
     /// <summary>
-    /// Implementation of <see cref="IUsbDevicesService"/> using <see cref="ManagementEventWatcher"/>.
+    /// Implementation of <see cref="IWindowsVolumeListenerService"/> using <see cref="ManagementEventWatcher"/>.
     /// </summary>
-    public class UsbDevicesService : IUsbDevicesService
+    public class WindowsVolumeListenerService : IWindowsVolumeListenerService
     {
         #region Instance variables
 
@@ -21,7 +21,7 @@ namespace VideosCentral.Services
         /// <summary>
         /// UsbDevicesService parameterless constructor
         /// </summary>
-        public UsbDevicesService()
+        public WindowsVolumeListenerService()
         {
             _watcher = new ManagementEventWatcher();
             WqlEventQuery query = new WqlEventQuery("SELECT * FROM Win32_VolumeChangeEvent");
@@ -34,7 +34,7 @@ namespace VideosCentral.Services
 
         #region Destructors
 
-        ~UsbDevicesService()
+        ~WindowsVolumeListenerService()
         {
             _watcher.Stop();
             _watcher.Dispose();
@@ -45,12 +45,12 @@ namespace VideosCentral.Services
         #region Events
 
         /// <summary>
-        /// <see cref="IUsbDevicesService.DriveInsertedEvent"/>
+        /// <see cref="IWindowsVolumeListenerService.DriveInsertedEvent"/>
         /// </summary>
         public event EventHandler<string> DriveInsertedEvent;
 
         /// <summary>
-        /// <see cref="IUsbDevicesService.DriveRemovedEvent"/>
+        /// <see cref="IWindowsVolumeListenerService.DriveRemovedEvent"/>
         /// </summary>
         public event EventHandler<string> DriveRemovedEvent;
 

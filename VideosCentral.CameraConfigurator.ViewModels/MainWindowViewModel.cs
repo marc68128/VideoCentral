@@ -6,26 +6,26 @@ namespace VideosCentral.CameraConfigurator.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel
     {
-        private readonly IUsbDevicesService _usbDevicesService;
+        private readonly IWindowsVolumeListenerService m_WindowsVolumeListenerService;
         private readonly IWindowService _windowService;
         private readonly IConfigurationFileService _configurationFileService;
         private readonly IVideoFileService _videoFileService;
 
-        public MainWindowViewModel(IUsbDevicesService usbDevicesService, IWindowService windowService, IConfigurationFileService configurationFileService, IVideoFileService videoFileService)
+        public MainWindowViewModel(IWindowsVolumeListenerService windowsVolumeListenerService, IWindowService windowService, IConfigurationFileService configurationFileService, IVideoFileService videoFileService)
         {
-            _usbDevicesService = usbDevicesService;
+            m_WindowsVolumeListenerService = windowsVolumeListenerService;
             _windowService = windowService;
             _configurationFileService = configurationFileService;
             _videoFileService = videoFileService;
 
-            _usbDevicesService.DriveInsertedEvent += DriveInserted;
-            _usbDevicesService.DriveRemovedEvent += DriveRemoved;
+            m_WindowsVolumeListenerService.DriveInsertedEvent += DriveInserted;
+            m_WindowsVolumeListenerService.DriveRemovedEvent += DriveRemoved;
         }
 
         ~MainWindowViewModel()
         {
-            _usbDevicesService.DriveInsertedEvent -= DriveInserted;
-            _usbDevicesService.DriveRemovedEvent -= DriveRemoved;
+            m_WindowsVolumeListenerService.DriveInsertedEvent -= DriveInserted;
+            m_WindowsVolumeListenerService.DriveRemovedEvent -= DriveRemoved;
         }
 
         private void DriveInserted(object sender, string driveName)

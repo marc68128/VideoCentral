@@ -14,7 +14,7 @@ namespace VideosCentral.CameraConfigurator
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            KernelConfig.RegisterInstance<IUsbDevicesService>(new UsbDevicesService());
+            KernelConfig.RegisterInstance<IWindowsVolumeListenerService>(new WindowsVolumeListenerService());
 
             var encryptionService = new EncryptionService();
             var videoFileService = new VideoFileService();

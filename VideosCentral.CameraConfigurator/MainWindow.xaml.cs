@@ -13,7 +13,7 @@ namespace VideosCentral.CameraConfigurator
         public MainWindow()
         {
             this.DataContext = new MainWindowViewModel(
-                Kernel.Kernel.Resolve<IUsbDevicesService>(), 
+                Kernel.Kernel.Resolve<IWindowsVolumeListenerService>(), 
                 Kernel.Kernel.Resolve<IWindowService>(),
                 Kernel.Kernel.Resolve<IConfigurationFileService>(),
                 Kernel.Kernel.Resolve<IVideoFileService>()); 

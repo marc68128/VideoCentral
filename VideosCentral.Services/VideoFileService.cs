@@ -11,7 +11,12 @@ namespace VideosCentral.Services
 
         public IEnumerable<string> GetAllVideoFiles(string drivePath)
         {
-            return Directory.GetFiles(drivePath, "*", SearchOption.AllDirectories).Where(path => _videoExtentions.Any(path.EndsWith));
+            return Directory.GetFiles(drivePath, "*", SearchOption.AllDirectories).Where(path => _videoExtentions.Any(path.EndsWith)).Select(RemoveDriveLetter);
+        }
+
+        private string RemoveDriveLetter(string path)
+        {
+            return path.Substring(Path.GetPathRoot(path).Length);
         }
     }
 }
