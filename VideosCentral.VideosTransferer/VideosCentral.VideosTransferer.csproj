@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
@@ -87,6 +88,14 @@
     <ProjectReference Include="..\VideosCentral.Logger\VideosCentral.Logger.csproj">
       <Project>{14e3f828-c2f3-4d2f-90b9-e9dcb356208f}</Project>
       <Name>VideosCentral.Logger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideosCentral.Services.Contracts\VideosCentral.Services.Contracts.csproj">
+      <Project>{75d0019e-481b-4e36-bfaf-0e7dc3223a9a}</Project>
+      <Name>VideosCentral.Services.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideosCentral.Services\VideosCentral.Services.csproj">
+      <Project>{215e5df4-c609-4da6-a385-c19ef0a0620a}</Project>
+      <Name>VideosCentral.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
