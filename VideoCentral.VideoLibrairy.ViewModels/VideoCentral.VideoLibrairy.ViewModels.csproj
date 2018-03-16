@@ -4,15 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{323F3E8C-CA14-4C75-AE2C-01C891F4EEFC}</ProjectGuid>
+    <ProjectGuid>{0074362E-2C3F-4887-A550-F7B207CEC58A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VideosCentral.CameraConfigurator.ViewModels</RootNamespace>
-    <AssemblyName>VideosCentral.CameraConfigurator.ViewModels</AssemblyName>
+    <RootNamespace>VideoCentral.VideoLibrairy.ViewModels</RootNamespace>
+    <AssemblyName>VideoCentral.VideoLibrairy.ViewModels</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,32 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseViewModel.cs" />
-    <Compile Include="CameraConfiguratorViewModel.cs" />
-    <Compile Include="MainWindowViewModel.cs" />
-    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="MediaPlayerViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\VideosCentral.CameraConfigurator.Domain\VideosCentral.CameraConfigurator.Domain.csproj">
-      <Project>{1b9f9e25-9f38-4421-9ee0-78d6911c88ed}</Project>
-      <Name>VideosCentral.CameraConfigurator.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\VideosCentral.CameraConfigurator.Services.Contracts\VideosCentral.CameraConfigurator.Services.Contracts.csproj">
-      <Project>{50521bfe-62d4-42d3-af0b-d5f021ec22e2}</Project>
-      <Name>VideosCentral.CameraConfigurator.Services.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\VideosCentral.Domain\VideosCentral.Domain.csproj">
-      <Project>{9ec7d9f6-ec7f-45e1-8518-f802fba00250}</Project>
-      <Name>VideosCentral.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\VideosCentral.Kernel\VideosCentral.Kernel.csproj">
-      <Project>{101cb752-73a7-4478-b732-98d5f45bfa2b}</Project>
-      <Name>VideosCentral.Kernel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\VideosCentral.Services.Contracts\VideosCentral.Services.Contracts.csproj">
-      <Project>{75d0019e-481b-4e36-bfaf-0e7dc3223a9a}</Project>
-      <Name>VideosCentral.Services.Contracts</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

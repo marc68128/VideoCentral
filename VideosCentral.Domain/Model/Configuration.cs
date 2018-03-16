@@ -56,7 +56,7 @@ namespace VideosCentral.Domain.Model
         /// <summary>
         /// List of all videos on the device.
         /// </summary>
-        public IEnumerable<string> VideoPaths { get; set; }
+        public IEnumerable<string> VideoPaths { get; }
 
         #endregion
     }

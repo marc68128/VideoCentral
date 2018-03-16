@@ -77,12 +77,21 @@ namespace VideosCentral.VideosTransferer
             foreach (var newVideo in newVideos)
             {
                 var ext = Path.GetExtension(newVideo); 
-                var destinationFolder = ConfigurationManager.AppSettings["VideoFolderPath"];
-                var destinationName = $"{DateTime.Now:yyy-MM-dd-HH-mm-ss}_{configurationFile.LastName}_{configurationFile.FirstName}{ext}";
-                var destinationPath = Path.Combine(destinationFolder, destinationName); 
+                var counter = 1; 
+                var destinationFolder = Path.Combine(ConfigurationManager.AppSettings["VideoFolderPath"], $"{DateTime.Now:yyyy-MM-dd}") ;
+                var destinationFileName = $"{configurationFile.LastName}_{configurationFile.FirstName}_{counter}{ext}";
+                var destinationPath = Path.Combine(destinationFolder, destinationFileName);
 
                 if (!Directory.Exists(destinationFolder))
                     Directory.CreateDirectory(destinationFolder);
+
+                while (File.Exists(destinationPath))
+                {
+                    counter++;
+                    destinationFileName = $"{configurationFile.LastName}_{configurationFile.FirstName}_{counter}{ext}";
+                    destinationPath = Path.Combine(destinationFolder, destinationFileName);
+                }
+
 
                 _logger.LogInfo($"\"{s}\" : Start copying {newVideo} to {destinationPath}.");
                 File.Copy(newVideo, destinationPath);

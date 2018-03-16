@@ -23,6 +23,8 @@ namespace VideosCentral.CameraConfigurator
             KernelConfig.RegisterInstance<IEncryptionService>(encryptionService);
             KernelConfig.RegisterInstance<IVideoFileService>(videoFileService);
             KernelConfig.RegisterInstance<IConfigurationFileService>(new ConfigurationFileService(encryptionService, videoFileService));
+
+            KernelConfig.RegisterInstance();
             base.OnStartup(e);
         }
     }
